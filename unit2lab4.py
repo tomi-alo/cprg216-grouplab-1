@@ -1,8 +1,8 @@
 """
 Program: Gas and Oil Purchase Calculator
 Description: This program calculates the total cost of gas or oil purchases, applies volume discounts, calculates provincial GST, and displays a summary table.
-Date: 2026-09-30
-Name: Oluwatomi Alo
+Date: 2026-15-30
+Group Name: Group 4
 
 """
 from typing import Final
@@ -24,7 +24,7 @@ print("-" * border_length)
 
 print("Please select the type of purchase:")
 print("G: Gas\nO: Oil")
-user_choice = input(">>>")
+user_choice = input(">>> ")
 
 if user_choice.upper() != "G" and user_choice.upper() != "O":
     print("Invalid input, you should enter g/G or o/O")
