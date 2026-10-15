@@ -6,7 +6,7 @@ Group Name: Group 4
 
 """
 
-# Instantiating Variables.
+# Instantiating Constant Variables.
 from typing import Final
 
 OIL_PRICE: Final = 1.25
@@ -17,6 +17,8 @@ DISCOUNT_THRESHOLD_GAS: Final = 2000
 AB_OR_BC_GST: Final = 0.05
 ON_GST: Final = 0.13
 OTHERS_GST: Final = 0.15
+DISCOUNT: Final = 0.9
+
 # Setting up the welcome message as well as the banner.
 banner_text = "*** Welcome to Gas Station Program! ***"
 border_length = len(banner_text)
@@ -24,17 +26,20 @@ border_length = len(banner_text)
 print("-" * border_length)
 print(banner_text)
 print("-" * border_length)
+
 # Asking user which type of purchase they want to proceed with.
 print("Please select the type of purchase:")
 print("G: Gas\nO: Oil")
-user_choice = input(">>>")
-# Using this if statement to input sanitize.
+user_choice = input(">>> ")
+
+# Using this if statement to sanitize input.
 if user_choice.upper() != "G" and user_choice.upper() != "O":
     print("Invalid input, you should enter g/G or o/O")
+
 # This if elif statement handles Oil pricing, It also handles Input sanitazation with another if-else statement.
 elif user_choice.upper() == "O":
     num_of_cases = int(input("Enter # of cases of Oil : "))
-    if num_of_cases < 0:
+    if num_of_cases <= 0:
         print("Number of oil cases should be > 0")
         exit()
     else:
@@ -44,7 +49,7 @@ elif user_choice.upper() == "O":
         price_before_discount = quantity * OIL_PRICE
 
         if num_of_cases > DISCOUNT_THRESHOLD_OIL:
-            price_after_discount = quantity * (OIL_PRICE * 0.9)
+            price_after_discount = quantity * (OIL_PRICE * DISCOUNT)
         else:
             price_after_discount = price_before_discount
 
@@ -72,10 +77,11 @@ elif user_choice.upper() == "O":
         print(separator)
 
         print("Thanks for your business, Good Bye")
+
 # This elif statement Handles the Gas pricing section. It also handles Input sanitization with another if-else statement.
 elif user_choice.upper() == "G":
     num_of_litres = int(input("Enter the number of litres of gas : "))
-    if num_of_litres < 0:
+    if num_of_litres <= 0:
         print("Number of gas litres should be > 0")
         exit()
     else:
@@ -85,7 +91,7 @@ elif user_choice.upper() == "G":
         price_before_discount = quantity * GAS_PRICE
 
         if num_of_litres > DISCOUNT_THRESHOLD_GAS:
-            price_after_discount = quantity * (GAS_PRICE * 0.9)
+            price_after_discount = quantity * (GAS_PRICE * DISCOUNT)
         else:
             price_after_discount = price_before_discount
 
@@ -112,4 +118,5 @@ elif user_choice.upper() == "G":
         )
         print(separator)
 
+    # Prints out a thank you message to the user after the calculations are done.
     print("Thanks for your business, Good Bye")
