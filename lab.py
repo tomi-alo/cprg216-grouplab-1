@@ -1,7 +1,7 @@
 """
 Program: Gas and Oil Purchase Calculator
 Description: This program calculates the total cost of gas or oil purchases, applies volume discounts, calculates provincial GST, and displays a summary table.
-Date: 2026-15-30
+Date: 2026-10-15
 Group Name: Group 4
 
 """
